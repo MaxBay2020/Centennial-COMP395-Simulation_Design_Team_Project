@@ -172,6 +172,9 @@ MonoBehaviour:
   currentTiming: 2
   currentSeconds: 0
   currentWeather: 2
+  WeatherSystem:
+  - {fileID: 1202612923}
+  - {fileID: 1187970235}
 --- !u!1 &555312540
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1187970236
 Transform:
   m_ObjectHideFlags: 0
@@ -5305,7 +5308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1202612924
 Transform:
   m_ObjectHideFlags: 0

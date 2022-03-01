@@ -29,7 +29,15 @@ public class GameManager : MonoBehaviour
     [Header("Weather")]
     public Weather currentWeather = Weather.GOOD;
 
+    public GameObject[] WeatherSystem;
+    private int particleRandom;
 
+    private float changceOfSun = 2f;
+    private float SunLength;
+    
+    private bool isSnowing = false;
+    private float dice;
+    private float timer = 0f;
 
     // Update is called once per frame
     void Update()
@@ -41,7 +49,42 @@ public class GameManager : MonoBehaviour
             int index = Random.Range(0, 2);
             Instantiate(customers[index], spawnPoint, Quaternion.identity);
             currentSeconds = 0;
+
         }
+
+        if (!isSnowing)
+        {
+            dice = Random.Range(0f, 100.0f);
+            if (dice < changceOfSun)
+            {
+                //sun
+                particleRandom = Random.Range(0, WeatherSystem.Length);
+                Snow(particleRandom);
+                isSnowing = true;
+                timer = Random.Range(5f, 20f);
+            }
+        }
+
+        if (isSnowing)
+        {
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                isSnowing = false;
+                StopSnow(particleRandom);
+            }
+        }
+
+    }
+
+    private void Snow(int particleRandom)
+    {
+        WeatherSystem[particleRandom].SetActive(true);
+    }
+
+    private void StopSnow(int particleRandom)
+    {
+        WeatherSystem[particleRandom].SetActive(false);
     }
 
 }
